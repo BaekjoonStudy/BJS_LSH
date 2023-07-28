@@ -4,7 +4,7 @@
 using namespace std;
 
 int matrix[9][9], result[9][9];
-vector<int> Z; // 0ÀÎ ÀÎµ¦½º¸¦ ÀúÀå
+vector<int> Z; // 0ì¸ ì¸ë±ìŠ¤ë¥¼ ì €ì¥
 
 bool find_row(int index, int num) {
 	for (int i = 0; i < 9; i++) {
@@ -34,14 +34,14 @@ bool find_box(int index1, int index2, int num) {
 	return false;
 }
 
-void func(int n) {
+bool func(int n) {
 	if (n == Z.size()) {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 8; j++)
 				cout << matrix[i][j] << " ";
 			cout << matrix[i][8] << "\n";
 		}
-		return;
+		return true;
 	}
 
 	int row, col;
@@ -49,12 +49,16 @@ void func(int n) {
 	row = Z[n] / 9;
 	col = Z[n] % 9;
 	for (int i = 1; i <= 9; i++) {
+		bool isEnd = false;
 		if (!find_row(row, i) && !find_col(col, i) && !find_box(row, col, i)) {
 			matrix[row][col] = i;
-			func(n + 1);
+			isEnd = func(n + 1);
+			if (isEnd)
+				return true;
 			matrix[row][col] = 0;
 		}
 	}
+	return false;
 }
 
 int main()
