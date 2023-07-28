@@ -12,8 +12,9 @@ int hanoi(int start, int end, int n) {
 	}
 	else
 		return hanoi(start, 6 - start - end, n - 1) + hanoi(start, end, 1) + hanoi(6 - start - end, end, n - 1);
-	// 6 - start - end ´Â Ç×»ó startµµ endµµ ¾Æ´Ñ ³ª¸ÓÁö¸¦ ¹İÈ¯ÇÔ
-	// ex) start = 1, end = 2ÀÌ¸é 6-start-end´Â 3
+	// ex) h(1,3,10) = h(1,2,9) + h(1,3,1) + h(2,3,9)
+	// 6 - start - end ëŠ” í•­ìƒ startë„ endë„ ì•„ë‹Œ ë‚˜ë¨¸ì§€ë¥¼ ë°˜í™˜í•¨
+	// ex) start = 1, end = 2ì´ë©´ 6-start-endëŠ” 3
 }
 
 int main()
