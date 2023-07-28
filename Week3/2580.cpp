@@ -45,11 +45,11 @@ bool func(int n) {
 	}
 
 	int row, col;
+	bool isEnd = false; // 정답이 여러개일 경우 하나만 출력하기 위함
 
 	row = Z[n] / 9;
 	col = Z[n] % 9;
 	for (int i = 1; i <= 9; i++) {
-		bool isEnd = false;
 		if (!find_row(row, i) && !find_col(col, i) && !find_box(row, col, i)) {
 			matrix[row][col] = i;
 			isEnd = func(n + 1);
