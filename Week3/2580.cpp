@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-int matrix[9][9], result[9][9];
+int matrix[9][9];
 vector<int> Z; // 0인 인덱스를 저장
 
 bool find_row(int index, int num) {
