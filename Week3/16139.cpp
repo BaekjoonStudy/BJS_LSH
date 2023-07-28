@@ -26,7 +26,7 @@ int main()
 				S[i][idx]++;
 				if (i != str.length() - 1) {
 					for (int j = 0; j < 26; j++)
-						S[i + 1][j] = S[i][j]; // S[i + 1][j]++
+						S[i + 1][j] = S[i][j];
 				}			
 			}
 			check = 1;
