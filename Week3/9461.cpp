@@ -1,33 +1,27 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
 
-int func(int n) {
-	if (n <= 3) {
-		return 1;
+long long result[100] = { 1,1,1,2,2,3,4,5,7,9 };
+
+long long func(int n) {
+	if (result[n - 1] != 0)
+		return result[n - 1];
+	else {
+		result[n - 1] = func(n - 1) + func(n - 5);
+		return result[n - 1];
 	}
-	else if (n <= 5) {
-		return 2;
-	}
-		
 }
 
 int main()
 {
-	ios::sync_with_stdio(0);
-	cin.tie(0);
-	
+
 	int T, N;
-	cin >> T;
+	scanf("%d", &T);
 
 	while (T--) {
-		cin >> N;
-		func(N);
+		scanf("%d", &N);
+		printf("%lld\n", func(N));
 	}
-	
+
 	return 0;
 }
