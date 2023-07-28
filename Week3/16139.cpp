@@ -19,14 +19,14 @@ int main()
 		if (!check) {
 			// ex : [a,a,b,a,b]
 			// S = [(1,0), (2,0), (2,1), (3,1), (3,2)]
-			// ¸¸¾à l=2, r=4 ±¸°£¿¡¼­ 'a' °³¼ö¸¦ ¾Ë°í½ÍÀ¸¸é
-			// S[4][0] - S[1][0] = 3 - 2 = 1 ÇØÁÖ¸é µÊ
+			// ë§Œì•½ l=2, r=4 êµ¬ê°„ì—ì„œ 'a' ê°œìˆ˜ë¥¼ ì•Œê³ ì‹¶ìœ¼ë©´
+			// S[4][0] - S[1][0] = 3 - 2 = 1 í•´ì£¼ë©´ ë¨
 			for (int i = 0; i < str.length(); i++) {
 				idx = int(str[i] - 'a');
 				S[i][idx]++;
 				if (i != str.length() - 1) {
 					for (int j = 0; j < 26; j++)
-						S[i + 1][j] = S[i][j];
+						S[i + 1][j] = S[i][j]; // S[i + 1][j]++
 				}			
 			}
 			check = 1;
