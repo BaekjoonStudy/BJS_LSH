@@ -5,18 +5,18 @@ using namespace std;
 
 int visited[1001] = { 0 };
 
-bool comp(int x, int y) { // ³»¸²Â÷¼øÁ¤·Ä
+bool comp(int x, int y) { // ë‚´ë¦¼ì°¨ìˆœì •ë ¬
 	return x > y;
 }
 
 void dfs(vector<int> V, vector<int>* E, int R) {
 	vector<int> stack;
 	for (auto v : V) 
-		visited[v] = 0;	// visited ¹è¿­ ÃÊ±âÈ­
+		visited[v] = 0;	// visited ë°°ì—´ ì´ˆê¸°í™”
 
 	cout << R << " ";
 	visited[R] = 1;
-	sort(E[R].begin(), E[R].end(), comp); // stackÀº °¡Àå ¸¶Áö¸·¿¡ µé¾î¿Â ¿ø¼ÒºÎÅÍ ³ª°¡±â ¶§¹®¿¡ ³»¸²Â÷¼øÀ¸·Î Á¤·Ä
+	sort(E[R].begin(), E[R].end(), comp); // stackì€ ê°€ì¥ ë§ˆì§€ë§‰ì— ë“¤ì–´ì˜¨ ì›ì†Œë¶€í„° ë‚˜ê°€ê¸° ë•Œë¬¸ì— ë‚´ë¦¼ì°¨ìˆœìœ¼ë¡œ ì •ë ¬
 	stack.insert(stack.end(), E[R].begin(), E[R].end()); 
 	
 	while (stack.size() != 0) {
@@ -32,16 +32,6 @@ void dfs(vector<int> V, vector<int>* E, int R) {
 	cout << "\n";
 }
 
-int dequeue(vector<int>& Q) {
-	int x = Q[0];
-	if (visited[x] == 0) {
-		cout << x << " ";
-		visited[x] = 1;
-	}
-	Q.erase(Q.begin(), Q.begin() + 1);
-	return x;
-}
-
 void bfs(vector<int> V, vector<int>* E, int R) {
 	vector<int> queue;
 	for (auto v : V)
@@ -49,7 +39,12 @@ void bfs(vector<int> V, vector<int>* E, int R) {
 
 	queue.push_back(R);
 	while (queue.size() != 0) {
-		int u = dequeue(queue);
+		int u = queue[0];
+		if (visited[u] == 0) {
+			cout << u << " ";
+			visited[u] = 1;
+		}
+		queue.erase(queue.begin(), queue.begin() + 1);
 		sort(E[u].begin(), E[u].end());
 		for (auto w : E[u]) {
 			if (visited[w] == 0) {
@@ -68,12 +63,12 @@ int main()
 	int N, M, S, tmp1, tmp2;
 	cin >> N >> M >> S;
 
-	vector<int> V; // Á¤Á¡µé
+	vector<int> V; // ì •ì ë“¤
 	while (N) {
 		V.push_back(N);
 		N--;
 	}
-	vector<int> E[1001]; // °£¼±À» Ç¥ÇöÇÒ ¹è¿­ ex) E[1] = [3,5]¶ó°í ÇÑ´Ù¸é 1¹ø Á¤Á¡Àº 3¹ø, 5¹ø Á¤Á¡°ú ÀÌ¾îÁ®ÀÖÀ½.
+	vector<int> E[1001]; // ê°„ì„ ì„ í‘œí˜„í•  ë°°ì—´ ex) E[1] = [3,5]ë¼ê³  í•œë‹¤ë©´ 1ë²ˆ ì •ì ì€ 3ë²ˆ, 5ë²ˆ ì •ì ê³¼ ì´ì–´ì ¸ìˆìŒ.
 	while (M--) {
 		cin >> tmp1 >> tmp2;
 		E[tmp1].push_back(tmp2); 
