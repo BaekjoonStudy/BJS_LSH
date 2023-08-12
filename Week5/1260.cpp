@@ -26,10 +26,7 @@ void dfs(vector<int> V, vector<int>* E, int R) {
 			cout << u << " ";
 			visited[u] = 1;
 			sort(E[u].begin(), E[u].end(), comp);
-			for (auto w : E[u]) {
-				if (visited[w] == 0) {
-					stack.push_back(w);
-				}
+			stack.insert(stack.end(), E[u].begin(), E[u].end());
 			}
 		}
 	}
