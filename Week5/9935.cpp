@@ -15,13 +15,13 @@ int main()
 	cin >> str2;
 
 
-	int l1 = str1.length(), l2 = str2.length(), isFind = false;
-	for (int i = 0; i < l1; i++) {
-		result.push_back(str1[i]); // ÇÏ³ª¾¿ ³Ö¾îÁÖ¸é¼­
-		if (result.size() >= l2) { // Æø¹ß ¹®ÀÚ¿­º¸´Ù ±æ¾îÁö¸é
-			for (int j = 0; j < l2; j++) { // Æø¹ß ¹®ÀÚ¿­ÀÌ¶û ºñ±³
-				// result = "abcd"ÀÌ°í Æø¹ß¹®ÀÚ¿­ ±æÀÌ°¡ 2¶ó¸é ÀÌ¹Ì "ab","bc"´Â for¹®À» µ¹¸é¼­ ºñ±³ÇßÀ¸¹Ç·Î "cd"¸¸ ºñ±³ÇÏ¸éµÊ
-				if (result[result.size() - l2 + j] == str2[j]) { 
+	int isFind = false;
+	for (int i = 0; i < str1.length(); i++) {
+		result.push_back(str1[i]); // í•˜ë‚˜ì”© ë„£ì–´ì£¼ë©´ì„œ
+		if (result.size() >= str2.length()) { // í­ë°œ ë¬¸ìì—´ë³´ë‹¤ ê¸¸ì–´ì§€ë©´
+			for (int j = 0; j < str2.length(); j++) { // í­ë°œ ë¬¸ìì—´ì´ë‘ ë¹„êµ
+				// result = "abcd"ì´ê³  í­ë°œë¬¸ìì—´ ê¸¸ì´ê°€ 2ë¼ë©´ ì´ë¯¸ "ab","bc"ëŠ” forë¬¸ì„ ëŒë©´ì„œ ë¹„êµí–ˆìœ¼ë¯€ë¡œ "cd"ë§Œ ë¹„êµí•˜ë©´ë¨
+				if (result[result.size() - str2.length() + j] == str2[j]) { 
 					isFind = true;
 				}
 				else {
