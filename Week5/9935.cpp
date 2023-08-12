@@ -31,7 +31,7 @@ int main()
 			}
 
 			if (isFind) {
-				result.erase(result.begin() + result.size() - l2, result.end());
+				result.erase(result.begin() + result.size() - str2.length(), result.end());
 			}
 		}
 	}
