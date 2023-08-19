@@ -82,7 +82,7 @@ int main()
 			// 때문에 prev_mid를 선언해 30을 가리키게 한 후 mid와 prev_mid 중 value와의 차가 더 작은 인덱스를 j에 저장하도록 함.
 			int diff1 = (acid[prev_mid] > value) ? acid[prev_mid] - value : value - acid[prev_mid];
 			int diff2 = (acid[mid] > value) ? acid[mid] - value : value - acid[mid];
-			int j = (diff1 > diff2) ? j = mid : j = prev_mid;
+			int j = (diff1 > diff2) ? mid : prev_mid;
 
 			long long sum_tmp = (base[i] + acid[j]) > 0 ? base[i] + acid[j] : -(base[i] + acid[j]);
 			if (sum_tmp < sum) {
