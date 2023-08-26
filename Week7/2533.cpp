@@ -21,8 +21,8 @@ void find(int x) {
         dp[x][1] += dp[child][0];
         dp[x][0] += min(dp[child][1], dp[child][0]);
     }
-
 }
+
 int main(void) {
     ios::sync_with_stdio(0);
     cin.tie(0);
