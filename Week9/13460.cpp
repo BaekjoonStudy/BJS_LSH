@@ -8,7 +8,6 @@ char map[10][10];
 queue<pair<int, pair<int, int>>> red_queue, blue_queue;
 
 int move(int& y1, int& x1, int y2, int x2, int dir) { // y1,x1 : 움직일 구슬 좌표 / y2,x2 : 움직이지 않을 구슬 좌표
-	//cout << dir << " - " << y1 << "," << x1 << " / " << y2 << "," << x2 << "\n";
 	if (dir == 0) { // 위쪽
 		while (true) {
 			if (map[y1 - 1][x1] == 'O') {// 구슬이 구멍에 들어갔다면 멈춤
@@ -69,7 +68,6 @@ void bfs() {
 		red_queue.pop();
 		blue_queue.pop();
 
-		cout << red_cnt << ": {" << red_init_y << "," << red_init_x << "}" << " {" << blue_init_y << "," << blue_init_x << "}" << "\n";
 		// 위쪽
 		red_y = red_init_y; red_x = red_init_x; blue_y = blue_init_y; blue_x = blue_init_x;
 		if (red_y < blue_y) { // 빨간 구슬부터
