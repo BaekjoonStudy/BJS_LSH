@@ -52,7 +52,12 @@ void tail(int idx, int dir, int cnt) {
 }
 
 bool move_sneak(int idx, int dir, int& cnt) {
-	int x = command[idx].first;
+    int x = command[idx].first;
+    if (idx == -1){
+        x = cnt + N;
+        idx = L;
+    }
+
 	while (cnt < x) {
 		if (dir == 0) { // 상
 			if (sneak.first.first - 1 >= 0) {
@@ -174,74 +179,7 @@ int main()
 	}
 
 	while (isbool) {
-		if (dir == 0) { // 상
-			if (sneak.first.first - 1 >= 0) {
-				if (board[sneak.first.first - 1][sneak.first.second] != 1) {
-					if (board[sneak.first.first - 1][sneak.first.second] == 2) // 사과를 만나면
-						sneak_length++;
-					else // 사과가 아니면
-						tail(L, dir, cnt); // 꼬리 위치를 0으로 바꾸고 꼬리 좌표 갱신
-					board[--sneak.first.first][sneak.first.second] = 1; // 머리 좌표 갱신 후 머리 위치를 1로 바꿈
-				}
-				else // 자기 몸에 부딪힌 경우
-					isbool = false;
-			}
-
-			else // 벽에 부딪힌 경우
-				isbool = false;
-		}
-
-		else if (dir == 1) { // 하
-			if (sneak.first.first + 1 < N) {
-				if (board[sneak.first.first + 1][sneak.first.second] != 1) {
-					if (board[sneak.first.first + 1][sneak.first.second] == 2) // 사과를 만나면
-						sneak_length++;
-					else // 사과가 아니면
-						tail(L, dir, cnt); // 꼬리 위치를 0으로 바꾸고 꼬리 좌표 갱신
-					board[++sneak.first.first][sneak.first.second] = 1; // 머리 좌표 갱신 후 머리 위치를 1로 바꿈
-				}
-				else  // 자기 몸에 부딪힌 경우
-					isbool = false;
-			}
-
-			else  // 벽에 부딪힌 경우
-				isbool = false;
-		}
-
-		else if (dir == 2) { // 좌
-			if (sneak.first.second - 1 >= 0) {
-				if (board[sneak.first.first][sneak.first.second - 1] != 1) {
-					if (board[sneak.first.first][sneak.first.second - 1] == 2) // 사과를 만나면
-						sneak_length++;
-					else // 사과가 아니면
-						tail(L, dir, cnt); // 꼬리 위치를 0으로 바꾸고 꼬리 좌표 갱신
-					board[sneak.first.first][--sneak.first.second] = 1; // 머리 좌표 갱신 후 머리 위치를 1로 바꿈
-				}
-				else  // 자기 몸에 부딪힌 경우
-					isbool = false;
-			}
-
-			else  // 벽에 부딪힌 경우
-				isbool = false;
-		}
-
-		else if (dir == 3) { // 우
-			if (sneak.first.second + 1 < N) {
-				if (board[sneak.first.first][sneak.first.second + 1] != 1) {
-					if (board[sneak.first.first][sneak.first.second + 1] == 2) // 사과를 만나면
-						sneak_length++;
-					else // 사과가 아니면
-						tail(L, dir, cnt); // 꼬리 위치를 0으로 바꾸고 꼬리 좌표 갱신
-					board[sneak.first.first][++sneak.first.second] = 1; // 머리 좌표 갱신 후 머리 위치를 1로 바꿈
-				}
-				else  // 자기 몸에 부딪힌 경우
-					isbool = false;
-			}
-
-			else  // 벽에 부딪힌 경우
-				isbool = false;
-		}
-		cnt++;
+		isbool = move_sneak(-1, dir, cnt);
 	}
 
 	cout << cnt << "\n";
