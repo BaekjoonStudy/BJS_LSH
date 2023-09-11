@@ -1,7 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <queue>
-#include <numeric>
 using namespace std;
 
 int N, M, r, c, d, cnt = 0;
