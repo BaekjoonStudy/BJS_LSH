@@ -76,6 +76,10 @@ int main()
 		int cnt = 1; // 같은 수가 몇 번 반복되는지 카운팅하는 변수
 		bool isDown = false, isBool = true; // isDown : 내려가는 경사로 필요한지  isBool : 길이 이어졌는지
 		for (int i = 1; i < N; i++) {
+			if (abs(map[i - 1][j] - map[i][j]) > 1) { // 높이 차이가 1보다 크다면
+				isBool = false;
+				break;
+			}
 			if (isDown == false) { // 내려가는 경사로 필요없다면
 				if (map[i - 1][j] - map[i][j] == 0) // 숫자가 같다면
 					cnt++;
@@ -114,11 +118,6 @@ int main()
 					isBool = false;
 					break;
 				}
-			}
-
-			if (abs(map[i - 1][j] - map[i][j]) > 1) { // 높이 차이가 1보다 크다면
-				isBool = false;
-				break;
 			}
 		}
 
