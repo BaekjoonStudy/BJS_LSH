@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-int N, min_diff, visited[20] = { 1 };
+int N, min_diff;
 int table[20][20];
 vector<int> result;
 
