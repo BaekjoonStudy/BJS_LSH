@@ -3,6 +3,7 @@ long long solution(int cap, int n, vector<int> deliveries, vector<int> pickups)
     long long answer = 0;
 
     int d = -1, p = -1, truck = 0;
+    // 뒤에서부터 0이 아닌 값부터 시작
     for (int i = deliveries.size() - 1; i >= 0; i--) {
         if (deliveries[i] != 0) {
             d = i;
