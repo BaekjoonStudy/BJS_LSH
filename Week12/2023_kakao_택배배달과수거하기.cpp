@@ -22,7 +22,6 @@ long long solution(int cap, int n, vector<int> deliveries, vector<int> pickups)
         
         truck = 0;
         while (d > -1) { // 배달
-            //cout << d << " " << truck << "\n";
             if (deliveries[d] + truck <= cap) { // 다 배달한 경우
                 truck += deliveries[d];
                 d--;
