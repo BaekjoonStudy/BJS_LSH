@@ -50,7 +50,7 @@ void move_shark() {
 			x = fish_distance[i].second.first;
 			y = fish_distance[i].second.second;
 		}
-		else if (x > fish_distance[i].second.first) { // 가장 위에 있는 물고기가 여러마리라면
+		else if (x == fish_distance[i].second.first) { // 가장 위에 있는 물고기가 여러마리라면
 			if (y > fish_distance[i].second.second) { // 가장 왼쪽에 있는 물고기를 먹음
 				x = fish_distance[i].second.first;
 				y = fish_distance[i].second.second;
