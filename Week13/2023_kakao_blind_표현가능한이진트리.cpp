@@ -15,7 +15,7 @@ string binary(long long number) {
 	}
 	int tmp = 1, sum = 1;
 	while (true) {
-		if (str.length() <= sum) {
+		if (str.length() <= sum) { // 이진수가 1,1+2,1+2+4,1+2+4+8,... 자릿수를 가져야 포화이진트리 만들 수 있음
 			tmp = sum - str.length();
 			while(tmp--)
 				str.insert(0, "0");
