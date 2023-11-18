@@ -15,7 +15,7 @@ vector<int> solution(vector<string> operations) {
     for (auto o : operations) {
         if (o[0] == 'I') { // 삽입
             len++;
-            int num = stoi(o.substr(2.-1));
+            int num = stoi(o.substr(2,-1));
             pq_min.push(num);
             pq_max.push(num);
         }
