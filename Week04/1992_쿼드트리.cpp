@@ -26,10 +26,10 @@ void func(vector<int> matrix)
 			else if (row >= (n / 2) && col >= (n / 2))
 				m4.push_back(matrix[i]);
 		}
-		func(m1); // аб╩С╢э
-		func(m2); // ©Л╩С╢э
-		func(m3); // абго╢э
-		func(m4); // ©Лго╢э
+		func(m1); // Л╒▄Л┐│К▀╗
+		func(m2); // Л ╟Л┐│К▀╗
+		func(m3); // Л╒▄М∙≤К▀╗
+		func(m4); // Л ╟М∙≤К▀╗
 		cout << ")";
 	}
 }
