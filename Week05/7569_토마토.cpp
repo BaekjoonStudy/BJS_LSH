@@ -10,32 +10,32 @@ int visited[1000000] = { 0 };
 void dequeue(vector<int>& Q) {
 	int idx = Q[0];
 	if (idx - N * M >= 0 && visited[idx - N * M] == 0) {
-		Q.push_back(idx - N * M); // À§
+		Q.push_back(idx - N * M); // ìœ„
 		visited[idx - N * M] = 1;
 	}
 
 	if (idx + N * M < N * M * H && visited[idx + N * M] == 0) {
-		Q.push_back(idx + N * M); // ¾Æ·¡
+		Q.push_back(idx + N * M); // ì•„ë˜
 		visited[idx + N * M] = 1;
 	}
 
 	if (idx - 1 >= 0 && (idx - 1) / M == idx / M && visited[idx - 1] == 0) {
-		Q.push_back(idx - 1); // ¿ŞÂÊ
+		Q.push_back(idx - 1); // ì™¼ìª½
 		visited[idx - 1] = 1;
 	}
 
 	if (idx + 1 < N * M * H && (idx + 1) / M == idx / M && visited[idx + 1] == 0) {
-		Q.push_back(idx + 1); // ¿À¸¥ÂÊ
+		Q.push_back(idx + 1); // ì˜¤ë¥¸ìª½
 		visited[idx + 1] = 1;
 	}
 
 	if (idx - M >= 0 && (idx - M) / (M * N) == idx / (M * N) && visited[idx - M] == 0) {
-		Q.push_back(idx - M); // µÚÂÊ
+		Q.push_back(idx - M); // ë’¤ìª½
 		visited[idx - M] = 1;
 	}
 
 	if (idx + M < N * M * H && (idx + M) / (M * N) == idx / (M * N) && visited[idx + M] == 0) {
-		Q.push_back(idx + M); // ¾ÕÂÊ
+		Q.push_back(idx + M); // ì•ìª½
 		visited[idx + M] = 1;
 	}
 
@@ -75,7 +75,7 @@ int main()
 		for (int j = 0; j < N; j++) {
 			for (int k = 0; k < M; k++) {
 				cin >> tmp;
-				int idx = i * M * N + j * M + k; // 1Â÷¿ø ÀÎµ¦½º·Î ¹Ù²ãÁÜ
+				int idx = i * M * N + j * M + k; // 1ì°¨ì› ì¸ë±ìŠ¤ë¡œ ë°”ê¿”ì¤Œ
 				if (tmp == -1)
 					visited[idx] = 1;
 				else if (tmp == 1) {
