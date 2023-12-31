@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int min_heap[100000] = { 0 }; // 0À¸·Î ÃÊ±âÈ­
+int min_heap[100000] = { 0 }; // 0ìœ¼ë¡œ ì´ˆê¸°í™”
 int heap_size = 0;
 
 void push(int x) {
@@ -28,9 +28,9 @@ void pop() {
 		min_heap[heap_size] = 0;
 	
 		while (true) {
-			if (left >= heap_size) // ÀÚ½Ä ³ëµå°¡ ¾øÀ» ¶§
+			if (left >= heap_size) // ìì‹ ë…¸ë“œê°€ ì—†ì„ ë•Œ
 				break;
-			else if (right >= heap_size) { // ¿ŞÂÊ ÀÚ½Ä ³ëµå¸¸ ÀÖÀ» ¶§
+			else if (right >= heap_size) { // ì™¼ìª½ ìì‹ ë…¸ë“œë§Œ ìˆì„ ë•Œ
 				if (min_heap[self] > min_heap[left]) {
 					tmp = min_heap[self];
 					min_heap[self] = min_heap[left];
@@ -38,9 +38,9 @@ void pop() {
 				}
 				break;
 			}
-			else { // ¾çÂÊ ÀÚ½Ä ³ëµå ¸ğµÎ ÀÖÀ» ¶§
-				if (min_heap[left] < min_heap[right]) { // ÀÚ½Ä ³ëµå³¢¸® ºñ±³ÇØ¼­ left°¡ ´õ ÀÛÀ» ¶§
-					if (min_heap[self] > min_heap[left]) { // ºÎ¸ğ¿Í ºñ±³ÇØ¼­ ÀÚ½ÄÀÌ ´õ ÀÛ´Ù¸é ¹Ù²ãÁÜ
+			else { // ì–‘ìª½ ìì‹ ë…¸ë“œ ëª¨ë‘ ìˆì„ ë•Œ
+				if (min_heap[left] < min_heap[right]) { // ìì‹ ë…¸ë“œë¼ë¦¬ ë¹„êµí•´ì„œ leftê°€ ë” ì‘ì„ ë•Œ
+					if (min_heap[self] > min_heap[left]) { // ë¶€ëª¨ì™€ ë¹„êµí•´ì„œ ìì‹ì´ ë” ì‘ë‹¤ë©´ ë°”ê¿”ì¤Œ
 						tmp = min_heap[self];
 						min_heap[self] = min_heap[left];
 						min_heap[left] = tmp;
@@ -49,8 +49,8 @@ void pop() {
 					else
 						break;
 				}
-				else { // right°¡ ´õ ÀÛÀ» ¶§
-					if (min_heap[self] > min_heap[right]) { // ºÎ¸ğ¿Í ºñ±³ÇØ¼­ ÀÚ½ÄÀÌ ´õ ÀÛ´Ù¸é ¹Ù²ãÁÜ
+				else { // rightê°€ ë” ì‘ì„ ë•Œ
+					if (min_heap[self] > min_heap[right]) { // ë¶€ëª¨ì™€ ë¹„êµí•´ì„œ ìì‹ì´ ë” ì‘ë‹¤ë©´ ë°”ê¿”ì¤Œ
 						tmp = min_heap[self];
 						min_heap[self] = min_heap[right];
 						min_heap[right] = tmp;
