@@ -84,7 +84,7 @@ void sort_info() {
 }
 
 vector<int> solution(vector<string> info, vector<string> query) {
-    vector<int> answer(query.size(), 0);
+    vector<int> answer;
     vector<string> arr;
     vector<int> trans_arr;
     for (auto i : info) {
@@ -127,10 +127,12 @@ vector<int> solution(vector<string> info, vector<string> query) {
         arr.push_back(tmp);
         trans_arr = trans(arr);
         
-        vector<int> score = I[trans_arr[0]][trans_arr[1]][trans_arr[2]][trans_arr[3]];
-        // sort(score.begin(), score.end());
-        int cnt = lower_bound(score.begin(), score.end(),trans_arr[4]) - score.begin();
-        answer[i] = score.size() - cnt;
+        int cnt = 0;
+        for (auto i : I[trans_arr[0]][trans_arr[1]][trans_arr[2]][trans_arr[3]]) {
+            if (i >= trans_arr[4])
+                cnt++;
+        }
+        answer.push_back(cnt);
     }
     
     return answer;
